@@ -8,7 +8,7 @@ call defx#custom#option('_', {
 	\ 'split': 'vertical',
 	\ 'direction': 'topleft',
 	\ 'show_ignored_files': 0,
-	\ 'columns': 'indent:git:icons:filename',
+	\ 'columns': 'indent:git:icons:filename:type',
 	\ 'root_marker': ' ',
 	\ 'ignored_files':
 	\     '.mypy_cache,.pytest_cache,.git,.hg,.svn,.stversions'
@@ -29,9 +29,21 @@ call defx#custom#column('git', {
 	\ })
 
 call defx#custom#column('mark', { 'readonly_icon': '', 'selected_icon': '' })
+let g:defx_icons_enable_syntax_highlight = 1
+let g:defx_icons_column_length = 2
+let g:defx_icons_directory_icon = ''
+" let g:defx_icons_mark_icon = '*'
+let g:defx_icons_copy_icon = ''
+let g:defx_icons_move_icon = ''
+let g:defx_icons_parent_icon = ''
+let g:defx_icons_default_icon = ''
+let g:defx_icons_directory_symlink_icon = ''
+" Options below are applicable only when using "tree" feature
+let g:defx_icons_root_opened_tree_icon = ''
+let g:defx_icons_nested_opened_tree_icon = ''
+let g:defx_icons_nested_closed_tree_icon = ''
 
 " defx-icons plugin
-let g:defx_icons_column_length = 2
 let g:defx_icons_mark_icon = ''
 
 " Internal use
