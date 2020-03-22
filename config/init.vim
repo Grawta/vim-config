@@ -81,11 +81,11 @@ function! s:main()
 
 		" Ensure data directories
 		for s:path in [
-				\ $DATA_PATH,
-				\ $DATA_PATH . '/undo',
-				\ $DATA_PATH . '/backup',
-				\ $DATA_PATH . '/session',
-				\ $VIM_PATH . '/spell' ]
+			\ $DATA_PATH,
+			\ $DATA_PATH . '/undo',
+			\ $DATA_PATH . '/backup',
+			\ $DATA_PATH . '/session',
+			\ $VIM_PATH . '/spell' ]
 			if ! isdirectory(s:path)
 				call mkdir(s:path, 'p')
 			endif
@@ -106,6 +106,7 @@ function! s:main()
 				let g:python3_host_prog = l:virtualenv
 			endif
 
+				let g:python3_host_prog = '/usr/bin/python3'
 		elseif has('pythonx')
 			if has('python3')
 				set pyxversion=3
@@ -344,11 +345,11 @@ function! s:find_yaml2json_method()
 			return 'yaml2json'
 		elseif executable('yq')
 			return 'yq'
-		" Or, try ruby. Which is installed on every macOS by default
-		" and has yaml built-in.
+			" Or, try ruby. Which is installed on every macOS by default
+			" and has yaml built-in.
 		elseif executable('ruby') && s:test_ruby_yaml()
 			return 'ruby'
-		" Or, fallback to use python3 and PyYAML
+			" Or, fallback to use python3 and PyYAML
 		elseif executable('python') && s:test_python_yaml()
 			return 'python'
 		endif
